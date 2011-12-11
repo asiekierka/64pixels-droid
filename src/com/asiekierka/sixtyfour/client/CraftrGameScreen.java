@@ -1,6 +1,6 @@
 package com.asiekierka.sixtyfour.client;
 import com.asiekierka.sixtyfour.common.*;
-public class CraftrGameScreen {
+public class CraftrGameScreen extends CraftrScreen {
 	public CraftrBlock[] blocks;
 
 	public CraftrChatMsg[] chatarr;
@@ -14,6 +14,10 @@ public class CraftrGameScreen {
 	public int[] drawChrA = new int[256];
 	public int[] drawColA = new int[256];
 	
+	public CraftrGameScreen()
+	{
+		
+	}
 	public boolean insideRect(int mx, int my, int x, int y, int w, int h)
 	{
 		if(mx >= x && my >= y && mx < x+w && my < y+h)
@@ -23,6 +27,11 @@ public class CraftrGameScreen {
 		{
 			return false;
 		}
+	}
+	
+	public void paint()
+	{
+		
 	}
 	
 	public void setCanvas(CraftrCanvas canvas)

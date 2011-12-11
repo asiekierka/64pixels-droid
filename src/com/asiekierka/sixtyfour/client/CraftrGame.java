@@ -43,14 +43,19 @@ implements CraftrGameShim {
 	private int waitTime = 0;
 	private int nagle=0;
 	private CraftrGameThread gt;
-	public CraftrGame()
+	
+	public CraftrGame(String saveDir)
 	{
 		gameOn = true;
 		map = new CraftrMap(false,64);
 		map.game = this;
-		map.saveDir = ""; // TODO: Figure out the way Android saves things.
+		map.saveDir = saveDir;
 		players[255] = new CraftrPlayer(0,0);
-		canvas = new CraftrCanvas();
+		canvas = new CraftrCanvas(map.saveDir);
+		gs = new CraftrGameScreen();
+		gs.setCanvas(canvas);
+		canvas.cs = (CraftrScreen)gs;
+		cmt = new CraftrMapThread(map);
 		if(cmtsp>0) cmt.speed=(1000/cmtsp);
 		else cmt.speed=0;
 	}

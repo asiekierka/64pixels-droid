@@ -11,6 +11,7 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        cg = new CraftrGame();
+        cg = new CraftrGame("/sdcard/64pixels");
+        // TODO 2.2: getExternalFilesDir
     }
 }
