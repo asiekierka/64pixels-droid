@@ -49,6 +49,10 @@ implements CraftrGameShim {
 		map = new CraftrMap(false,64);
 		map.game = this;
 		map.saveDir = ""; // TODO: Figure out the way Android saves things.
+		players[255] = new CraftrPlayer(0,0);
+		canvas = new CraftrCanvas();
+		if(cmtsp>0) cmt.speed=(1000/cmtsp);
+		else cmt.speed=0;
 	}
 	public String escapeSlashes(String orig)
 	{
