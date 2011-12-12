@@ -3,6 +3,7 @@ import com.asiekierka.sixtyfour.common.*;
 import java.io.*;
 import java.net.*;
 import java.util.*;
+import android.content.res.*;
 
 public class CraftrGame
 implements CraftrGameShim {
@@ -44,14 +45,14 @@ implements CraftrGameShim {
 	private int nagle=0;
 	private CraftrGameThread gt;
 	
-	public CraftrGame(String saveDir)
+	public CraftrGame(String saveDir, AssetManager asset)
 	{
 		gameOn = true;
 		map = new CraftrMap(false,64);
 		map.game = this;
 		map.saveDir = saveDir;
 		players[255] = new CraftrPlayer(0,0);
-		canvas = new CraftrCanvas(map.saveDir);
+		canvas = new CraftrCanvas(saveDir,asset);
 		gs = new CraftrGameScreen();
 		gs.setCanvas(canvas);
 		canvas.cs = (CraftrScreen)gs;
